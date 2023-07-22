@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ReactNativeCrudFirebase</string>
+
+
+<string name="facebook_app_id">584172953297653</string>
+<string name="facebook_client_token">272d6769a8d927239a031989fb5e754a</string>
+
+
+</resources>
