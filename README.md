@@ -20,7 +20,7 @@ Required Node version - 18.13.0
 Install the dependencies start the server
 
 ```
-git clone https://github.com/Abhi9645719028/React-Native-BoilerPlate
+git clone https://github.com/abhinand-vp/ReactNative-BoilerPlate
 ```
 ```
 cd react-native-boilerplate
@@ -56,12 +56,10 @@ npx react-native run-android
 - Here, the package name is `com.reactnativecrudfirebase` since this project was cloned. So, add your preferred package name using find and replace.
 - Download the **google-service.json** file and replace it on `android/app`
 
-![Add Android App](screenshots/addandroidapp.png)
 
 3. Configure Firebase in your React Native app
 
 - Add your Firebase configuration into `config/firebaseHooks.js`
-
 
 
 
@@ -93,7 +91,6 @@ appId: 'insert yours'
 
 - Enable Email & Password auth method in `Firebase Console -> Authentication -> Sign-in method`
 
-![Alt text](screenshots/email&password.png).
 ### Google Signup 
 
 - Enable Google auth method in Firebase `Console -> Authentication -> Sign-in method`
@@ -110,9 +107,6 @@ cd android
 - Download the **google-services.json file**. You should place this file in the `android/app directory`
 - Replace your webclientId (`config/webClient`) with `client/oauth_client/client_id`  in  **google-service-json** file ( Make sure to pick the client_id with client_type: 3 )
 
-![Alt text](screenshots/googlesignupenable.png)
-
-
 
 ### Facebook signup
 
@@ -122,8 +116,6 @@ cd android
 - Go to the Apps section and create a new app
 - Once you have created  an application, you will be greeted with the App Dashboard. Add the Facebook Login product to your app from the dashboard.
 - `Go to Settings > basic` for getting App Id and App secret
-
-![Alt text](screenshots/appidfacebook.png).
 
 
 - OAuth redirect URI to your Facebook app configuration from Facebook `Login/ Settings`  
@@ -159,6 +151,3 @@ Add a Firebase database for adding user details. Create a collection named **use
 - You can get the token from FCM Token generation function in `screens/Login.js`
 - Enable the notification permission in the app settings.
 
-![Alt text](screenshots/setnoti.png).
-
-![Alt text](screenshots/savenoti.png).
