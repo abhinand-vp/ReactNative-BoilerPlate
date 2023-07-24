@@ -5,31 +5,31 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
 } from 'react-native';
-import {useEffect, useState} from 'react';
-import {TextInput, Button} from 'react-native-paper';
-import {firebase} from '../src/firebase-config';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {LoginButton, AccessToken} from 'react-native-fbsdk-next';
+import { useEffect, useState } from 'react';
+import { TextInput, Button } from 'react-native-paper';
+import { firebase } from '../src/firebase-config';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { LoginButton, AccessToken } from 'react-native-fbsdk-next';
 import messaging from '@react-native-firebase/messaging';
-import {LoginManager} from 'react-native-fbsdk-next';
+import { LoginManager } from 'react-native-fbsdk-next';
 
 const Login = props => {
-  const {navigation} = props;
+  const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorreason, setErrorreason] = useState();
 
-  const getTokenMessage =async()=>{
-    const token =await messaging().getToken()
+  const getTokenMessage = async () => {
+    const token = await messaging().getToken()
     console.log(token);
     await messaging().setBackgroundMessageHandler(async remoteMessage => {
       console.log('Message handled in the background!', remoteMessage);
     });
   }
- useEffect(()=>{
+  useEffect(() => {
     getTokenMessage()
-  },[])
-  
+  }, [])
+
   const userRegister = async () => {
     await firebase
       .auth()
@@ -41,7 +41,7 @@ const Login = props => {
         setPassword('');
         navigation.navigate('Main', {
           screen: 'HomeScreen',
-          params: {uid: user.uid},
+          params: { uid: user.uid },
         });
       })
       .catch(res => {
@@ -60,7 +60,7 @@ const Login = props => {
         setPassword('');
         navigation.navigate('Main', {
           screen: 'HomeScreen',
-          params: {uid: user.uid},
+          params: { uid: user.uid },
         });
       })
       .catch(res => {
@@ -75,9 +75,9 @@ const Login = props => {
 
   const onGoogleButtonPress = async () => {
     try {
-      await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
       // Get the users ID token
-      const {idToken} = await GoogleSignin.signIn();
+      const { idToken } = await GoogleSignin.signIn();
 
       // Create a Google credential with the token
       const googleCredential =
@@ -94,7 +94,7 @@ const Login = props => {
           setPassword('');
           navigation.navigate('Main', {
             screen: 'HomeScreen',
-            params: {uid: user.uid},
+            params: { uid: user.uid },
           });
         });
 
@@ -139,7 +139,7 @@ const Login = props => {
           setPassword('');
           navigation.navigate('Main', {
             screen: 'HomeScreen',
-            params: {uid: user.uid},
+            params: { uid: user.uid },
           });
         });
     } catch (error) {
@@ -148,13 +148,13 @@ const Login = props => {
   };
 
   //mobile auth
- const mobileAuthentication = () =>{
-  navigation.navigate('Main', {
-    screen: 'Mobileauthentication'
-  });
- }
+  const mobileAuthentication = () => {
+    navigation.navigate('Main', {
+      screen: 'Mobileauthentication'
+    });
+  }
 
-  
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.inputcontainer}>
@@ -187,8 +187,7 @@ const Login = props => {
           <Text style={styles.error}>{errorreason?.message}</Text>
         )}
       </View>
-      <Text></Text>
-
+      
       <View style={styles.buttoncontainer}>
         <Button style={styles.button} mode="contained" onPress={LoginUser}>
           Login

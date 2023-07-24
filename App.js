@@ -7,20 +7,20 @@
 
 import React, { Fragment } from 'react';
 import AppNavigator from './AppNavigator';
-import SplashScreen from "react-native-splash-screen"; //import SplashScreen
+import SplashScreen from "react-native-splash-screen";
 import { useEffect } from 'react';
 
-const App = ()=> {
+const App = () => {
   console.log("app navigater");
 
   useEffect(() => {
-    SplashScreen.hide(); //hides the splash screen on app load.
+    SplashScreen.hide(); 
   }, []);
 
-  return(
+  return (
     <Fragment>
-  <AppNavigator />
-  </Fragment>
+      <AppNavigator />
+    </Fragment>
   )
 };
 

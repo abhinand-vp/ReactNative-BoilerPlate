@@ -9,7 +9,6 @@ import Dashboard from './Screens/Dashboard';
 const Stack = createNativeStackNavigator();
 
 const Main = () => {
-  console.log('app navigater');
   return (
     <Stack.Navigator
       screenOptions={{

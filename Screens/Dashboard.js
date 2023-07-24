@@ -1,10 +1,10 @@
-import {StyleSheet, View, Text, Image} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Button} from 'react-native-paper';
-import {firebase} from '../src/firebase-config';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-native-paper';
+import { firebase } from '../src/firebase-config';
 
 const Dashboard = props => {
-  const {route} = props;
+  const { route } = props;
   const userId = route?.params?.uid;
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -29,7 +29,7 @@ const Dashboard = props => {
       .then(() => {
         props.navigation.navigate('Login');
       })
-      .catch(error => setState({errorMessage: error.message}));
+      .catch(error => setState({ errorMessage: error.message }));
   };
 
   let timeOfDay;
@@ -52,7 +52,7 @@ const Dashboard = props => {
             <Text style={styles.headingname}>
               Good {timeOfDay} {item.name}
             </Text>
-            <Image style={styles.profileurl} source={{uri: item.profileurl}} />
+            <Image style={styles.profileurl} source={{ uri: item.profileurl }} />
           </View>
         ))}
       </View>
